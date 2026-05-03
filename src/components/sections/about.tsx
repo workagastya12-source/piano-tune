@@ -22,13 +22,13 @@ export function AboutSection() {
             {/* Decorative frame */}
             <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl border-2 border-accent/20 pointer-events-none" />
             
-            {/* Real Photo Replacement with Alignment Fix */}
+            {/* Corrected Photo Container */}
             <div className="relative rounded-3xl overflow-hidden bg-secondary border border-border aspect-[4/5] flex flex-col shadow-2xl">
               <Image 
                 src="/Tony.png" 
                 alt="Tony - A Tune In Time Piano Technician"
                 fill
-                className="object-cover object-left" 
+                className="object-cover object-right" 
                 priority
               />
               
@@ -42,8 +42,8 @@ export function AboutSection() {
               <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-accent/60 via-accent to-accent/60" />
             </div>
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-5 -right-5 bg-foreground text-background rounded-2xl px-5 py-4 shadow-xl">
+            {/* Floating badge - Adjusted positioning for better balance */}
+            <div className="absolute -bottom-5 right-2 sm:right-5 bg-foreground text-background rounded-2xl px-5 py-4 shadow-xl">
               <p className="text-3xl font-bold text-accent" style={{ fontFamily: "var(--font-playfair)" }}>20+</p>
               <p className="text-xs text-background/70 mt-0.5">Years of Excellence</p>
             </div>
