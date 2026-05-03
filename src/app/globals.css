@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Piano palette — light mode: ivory background, ebony text, gold accent */
+  --background: 40 20% 97%;
+  --foreground: 0 0% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --primary: 0 0% 10%;
+  --primary-foreground: 40 20% 97%;
+  --secondary: 40 15% 93%;
+  --secondary-foreground: 0 0% 15%;
+  --muted: 40 15% 93%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 42 85% 48%;
+  --accent-foreground: 0 0% 10%;
+  --destructive: 0 72% 51%;
+  --border: 40 10% 88%;
+  --input: 40 10% 88%;
+  --ring: 42 85% 48%;
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Dark mode: true ebony black, ivory text, gold accent */
+  --background: 0 0% 6%;
+  --foreground: 40 20% 94%;
+  --card: 0 0% 10%;
+  --card-foreground: 40 20% 94%;
+  --popover: 0 0% 10%;
+  --popover-foreground: 40 20% 94%;
+  --primary: 40 20% 94%;
+  --primary-foreground: 0 0% 6%;
+  --secondary: 0 0% 14%;
+  --secondary-foreground: 40 20% 90%;
+  --muted: 0 0% 14%;
+  --muted-foreground: 0 0% 55%;
+  --accent: 42 85% 52%;
+  --accent-foreground: 0 0% 6%;
+  --destructive: 0 62% 50%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 42 85% 52%;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+}
+
+* { border-color: hsl(var(--border)); }
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Piano key decorative divider */
+.piano-keys {
+  display: flex;
+  height: 48px;
+  overflow: hidden;
+}
+.piano-keys span {
+  flex: 1;
+  background: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  position: relative;
+}
+.piano-keys span.black {
+  background: hsl(0 0% 8%);
+  height: 60%;
+  flex: 0.6;
+  margin: 0 -0.3em;
+  z-index: 1;
+  border-radius: 0 0 3px 3px;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.text-shimmer {
+  background: linear-gradient(90deg, hsl(42,85%,48%) 0%, hsl(42,95%,70%) 50%, hsl(42,85%,48%) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: hsl(var(--muted)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--accent)); border-radius: 3px; }
