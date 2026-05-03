@@ -22,18 +22,18 @@ export function AboutSection() {
             {/* Decorative frame */}
             <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl border-2 border-accent/20 pointer-events-none" />
             
-            {/* Real Photo Replacement */}
+            {/* Real Photo Replacement with Alignment Fix */}
             <div className="relative rounded-3xl overflow-hidden bg-secondary border border-border aspect-[4/5] flex flex-col shadow-2xl">
               <Image 
                 src="/Tony.png" 
                 alt="Tony - A Tune In Time Piano Technician"
                 fill
-                className="object-cover"
+                className="object-cover object-left" 
                 priority
               />
               
               {/* Branding Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                 <p className="text-white text-sm font-medium">Tony — A Tune In Time</p>
                 <p className="text-xs text-white/80 mt-1">Albany Creek, Brisbane</p>
               </div>
